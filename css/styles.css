@@ -1,87 +1,244 @@
+/* === БАЗОВЫЕ НАСТРОЙКИ И СБРОС === */
+:root {
+  --copper: #d48b59;
+  --copper-dark: #8c5331;
+  --copper-light: #ffb84d; 
+  --temporal: #4dc2b8;
+  --temporal-dark: #1f6b65;
+  --bg-dark: #161412;
+  --text-main: #eaddcf;
+  --text-muted: #a39b91;
+  --font-title: 'Georgia', serif;
+  --font-text: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box; /* Важнейшее правило для адаптива! */
+}
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: "Roboto", sans-serif;
-  color: #434455;
-  background-color: #fff;
+  margin: 0; padding: 0;
+  font-family: var(--font-text);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  overflow-x: hidden;
 }
 
-ul, ol {
-  list-style-type: none;
-}
-  
-a {
-  text-decoration: none;
-}
-
-header {
-    background-color: #434455;
+/* === ШТОРМ (ИСКРЫ) === */
+#particles {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: 1;
+  opacity: 0.6;
+  pointer-events: none;
 }
 
-h1 {
-    color: #fff;
+/* === СЕКЦИИ (НА ВЕСЬ ЭКРАН) === */
+.snap-section {
+  height: 100vh; width: 100vw;
+  scroll-snap-align: start; scroll-snap-stop: always;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  position: relative;
+  background: radial-gradient(circle at center, rgba(36,32,29,0.4) 0%, rgba(22,20,18,0.9) 100%);
+  padding: 20px; /* Безопасный отступ для мобилок */
 }
 
-.link {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: #2e2f42;
-  background-color: #E8F9FF;
+/* === ЭКРАН 1: ГЛАВНЫЙ (С ВИДЕО) === */
+.hero {
+  position: relative;
+  background-color: var(--bg-dark);
+  overflow: hidden; 
+  padding: 0; /* Видео должно быть на весь экран */
 }
 
-.link:hover, 
-.link:focus {
-  color: #404bbf;
+.hero-video {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 0; 
+  filter: brightness(0.35) contrast(1.1) grayscale(0.2) sepia(0.3);
 }
 
-.section-gray {
-    background-color: #f5f5f5;
+.hero::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(ellipse at center, rgba(36, 32, 29, 0.1) 0%, rgba(22, 20, 18, 0.85) 40%, #0d0b0a 75%);
+  box-shadow: inset 0 0 200px 80px #0d0b0a;
+  z-index: 1; pointer-events: none;
 }
 
-h2 {
-    color: #003D66;
+/* === ГИГАНТСКИЕ ЦИФРЫ === */
+.bg-number {
+  position: absolute; font-size: 50vh; font-family: var(--font-title); font-weight: bold;
+  color: var(--copper); opacity: 0.03; z-index: 0; user-select: none;
 }
 
-.title-color {
-    color: #004675;
+/* === ПАНЕЛИ (СТЕКЛО) === */
+.panel {
+  position: relative; z-index: 2;
+  background: rgba(36, 32, 29, 0.6); backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 139, 89, 0.3); padding: 60px; border-radius: 12px;
+  width: 100%; max-width: 800px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  transform-style: preserve-3d; perspective: 1000px;
 }
 
-.directory {
-  font-family: "Raleway", sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.17;
-  letter-spacing: 0.03em;
-  color: #404040;
-}
+.transparent-panel { background: transparent; border: none; backdrop-filter: none; box-shadow: none; padding: 0;}
+.temporal-panel { border-color: rgba(77, 194, 184, 0.3); }
+.perfect-panel { border-color: rgba(255, 184, 77, 0.3); }
 
+/* === ЗАГОЛОВКИ И ТЕКСТ === */
+.glina-title {
+  font-family: var(--font-title); 
+  font-size: clamp(2.5rem, 6vw, 5rem); /* Резиновый шрифт */
+  text-transform: uppercase; letter-spacing: 8px; color: var(--copper); 
+  text-shadow: 0 5px 15px rgba(0,0,0,0.8), 0 0 20px rgba(212, 139, 89, 0.4);
+  margin: 0 0 20px 0; display: flex; align-items: center; justify-content: center; gap: 20px; 
+}
+.ornament { color: var(--copper-dark); font-size: 0.8em; line-height: 1; }
+
+.panel h3 { font-family: var(--font-title); font-size: clamp(1.8rem, 4vw, 2.5rem); color: var(--copper); margin: 0 0 20px 0; transform: translateZ(20px); }
+.panel p { font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.6; color: var(--text-main); margin-bottom: 30px; transform: translateZ(10px); }
+
+/* === ИКОНКИ SVG === */
+.card-icon { margin-bottom: 20px; transform: translateZ(30px); display: flex; justify-content: center; align-items: center; }
+.icon-svg { width: 4rem; height: 4rem; transition: all 0.3s ease; }
+.temporal-glow .icon-svg { filter: drop-shadow(0 0 15px var(--temporal)) drop-shadow(0 0 5px var(--temporal-dark)); }
+.step-card:hover .icon-svg { transform: scale(1.1); }
+.temporal-glow { color: var(--temporal) !important; text-shadow: 0 0 15px var(--temporal-dark); }
+
+/* === ЭЛЕМЕНТЫ ВНУТРИ ПАНЕЛЕЙ === */
+.step-action-row {
+  display: flex; align-items: center; justify-content: center; gap: 30px;
+  margin-top: 20px; transform: translateZ(15px);
+}
+.auth-box {
+  background: rgba(0,0,0,0.5); padding: 15px 30px; border-radius: 8px;
+  border-left: 4px solid var(--copper); text-align: left;
+}
+.auth-row { font-size: 1.1rem; margin: 5px 0; }
+.auth-row .label { color: var(--text-muted); }
+.auth-row .value { color: #fff; font-weight: bold; font-family: monospace; letter-spacing: 2px; }
+
+.directory-box {
+  background: rgba(0,0,0,0.5); padding: 15px; border-radius: 6px; margin-bottom: 30px;
+  border: 1px dashed var(--temporal); transform: translateZ(15px);
+  word-wrap: break-word; /* Важно для мобилок: ломает длинный путь */
+}
+.directory-box code { color: var(--temporal); font-family: monospace; font-size: 1.1rem; }
+.note { font-style: italic; color: #ffba8c !important; font-size: 0.95rem !important; }
+
+/* === PERFECTO === */
 .perfecto {
-  font-family: "Raleway", sans-serif;
-  font-weight: 800;
-  font-size: 20px;
-  line-height: 1.2;
-  letter-spacing: 0.04em;
-  color: #000000;
-  background-color: #ff7979;
+  color: var(--copper-light); font-size: clamp(2rem, 5vw, 3.5rem); font-family: var(--font-title);
+  margin-top: 30px; animation: pulse 2s infinite; text-shadow: 0 0 20px rgba(255, 184, 77, 0.4);
+  transform: translateZ(30px); letter-spacing: 5px;
 }
 
-footer {
-    background-color: #434455;
-    color: #fff;
-    padding: 20px;
+/* === КНОПКИ === */
+.btn-copper {
+  padding: 18px 50px; font-size: 1.2rem; font-weight: bold; font-family: var(--font-title); text-transform: uppercase;
+  background: linear-gradient(135deg, var(--copper-dark), var(--copper)); color: #fff; border: 2px solid #ffba8c;
+  border-radius: 4px; cursor: pointer; transition: all 0.3s ease; transform: translateZ(20px);
+}
+.btn-copper:hover { transform: translateZ(20px) scale(1.05); box-shadow: 0 0 30px rgba(212, 139, 89, 0.8); }
+
+.link-btn {
+  display: inline-block; padding: 15px 40px; font-size: 1.1rem; background-color: rgba(212, 139, 89, 0.1);
+  color: var(--copper); border: 2px solid var(--copper-dark); border-radius: 4px; text-decoration: none;
+  font-weight: bold; transition: 0.3s ease; text-transform: uppercase;
+}
+.link-btn:hover { background-color: var(--copper); color: #fff; box-shadow: 0 0 20px rgba(212, 139, 89, 0.5); }
+
+.link-temporal { color: var(--temporal); border-color: var(--temporal-dark); background-color: rgba(77, 194, 184, 0.1); }
+.link-temporal:hover { background-color: var(--temporal); color: #fff; box-shadow: 0 0 20px rgba(77, 194, 184, 0.5); }
+
+/* === СТРЕЛОЧКИ === */
+.scroll-indicator {
+  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; cursor: pointer; z-index: 2; 
+}
+.chevron {
+  width: 20px; height: 20px; border-right: 3px solid var(--copper); border-bottom: 3px solid var(--copper);
+  transform: rotate(45deg); animation: arrows 2s infinite; margin-top: -10px;
+}
+.chevron:nth-child(1) { animation-delay: -0.4s; }
+.chevron:nth-child(2) { animation-delay: -0.2s; }
+.chevron:nth-child(3) { animation-delay: 0s; }
+
+/* === ПОДВАЛ И МОДАЛКА === */
+.secret-trigger-area { position: absolute; bottom: 0; width: 100%; height: 60px; display: flex; align-items: center; justify-content: center; z-index: 10; }
+.secret-btn { background-color: #3b1414; color: #ffb84d; border: 1px solid #ffb84d; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; opacity: 0; transform: translateY(20px); transition: all 0.4s ease; }
+.secret-trigger-area:hover .secret-btn { opacity: 1; transform: translateY(0); }
+.secret-btn:hover { background-color: #ffb84d; color: #111; }
+
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); display: flex; justify-content: center; align-items: center; z-index: 9999; opacity: 0; pointer-events: none; transition: all 0.3s ease; padding: 20px; }
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+.modal-content { position: relative; max-width: 100%; max-height: 90vh; transform: scale(0.8); transition: all 0.3s ease; }
+.modal-overlay.active .modal-content { transform: scale(1); }
+.modal-content img { max-width: 100%; max-height: 85vh; border-radius: 12px; border: 2px solid var(--copper); box-shadow: 0 0 40px rgba(212, 139, 89, 0.4); object-fit: contain; }
+.close-modal { position: absolute; top: -40px; right: 0; color: #fff; font-size: 2.5rem; cursor: pointer; line-height: 1; transition: 0.3s; }
+.close-modal:hover { color: var(--copper); transform: scale(1.1); }
+
+/* === АНИМАЦИИ === */
+@keyframes arrows { 0% { opacity: 0; transform: rotate(45deg) translate(-10px, -10px); } 50% { opacity: 1; } 100% { opacity: 0; transform: rotate(45deg) translate(10px, 10px); } }
+@keyframes pulse { 0% { transform: translateZ(30px) scale(1); } 50% { transform: translateZ(30px) scale(1.05); } 100% { transform: translateZ(30px) scale(1); } }
+
+
+/* ========================================================
+   АДАПТИВНОСТЬ (RESPONSIVE DESIGN)
+======================================================== */
+
+/* ПЛАНШЕТЫ И НЕБОЛЬШИЕ ЭКРАНЫ (до 1024px) */
+@media (max-width: 1024px) {
+  .panel { padding: 40px 30px; }
+  .bg-number { font-size: 40vh; }
 }
 
-.button {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: #ffffff;
-  background-color: #ff2d2d;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 8px;
+/* МОБИЛЬНЫЕ ТЕЛЕФОНЫ (до 768px) */
+@media (max-width: 768px) {
+  .panel { 
+    padding: 30px 20px; 
+    /* На телефонах отключаем 3D-сохранение, чтобы элементы не вылезали за края экрана */
+    transform-style: flat; 
+  }
+  
+  /* Элементы больше не "выпрыгивают" в 3D на телефоне */
+  .panel *, .card-icon, .step-action-row { transform: none !important; }
+
+  .glina-title { flex-direction: column; gap: 5px; letter-spacing: 4px;}
+  .ornament { display: none; /* Прячем звездочки на телефонах для чистоты */ }
+  
+  .icon-svg { width: 3rem; height: 3rem; }
+  .bg-number { font-size: 25vh; opacity: 0.05; }
+  
+  /* Перестраиваем кнопки и формы в столбик */
+  .step-action-row { flex-direction: column; gap: 15px; width: 100%; }
+  .auth-box { width: 100%; text-align: center; border-left: none; border-bottom: 4px solid var(--copper); padding: 15px; }
+  .auth-row { justify-content: center; display: flex; gap: 10px; }
+  
+  .btn-copper, .link-btn { width: 100%; padding: 15px 20px; font-size: 1rem; text-align: center; }
+  .directory-box code { font-size: 0.9rem; }
+  
+  /* Секретная кнопка теперь всегда видна на мобилках внизу (нет hover) */
+  .secret-btn { opacity: 0.5; transform: translateY(0); }
+}
+
+/* ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ (до 480px) */
+@media (max-width: 480px) {
+  .panel { padding: 20px 15px; }
+  .glina-title { font-size: 2.2rem; }
+  .panel h3 { font-size: 1.5rem; }
+  .auth-row { flex-direction: column; gap: 2px; }
+}
+
+/* ЛАНДШАФТНЫЙ РЕЖИМ СМАРТФОНОВ (мало высоты) */
+@media (max-height: 600px) {
+  html { scroll-snap-type: none; /* Отключаем магнит, чтобы можно было скроллить внутри секции */ }
+  .snap-section { height: auto; min-height: 100vh; padding: 40px 15px; }
+  .bg-number { display: none; /* Прячем цифры, чтобы не мешали чтению */ }
+  .hero { padding: 0; }
+  .scroll-indicator { bottom: 10px; }
 }

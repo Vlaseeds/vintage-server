@@ -1,93 +1,167 @@
-<!DOCTYPE html>
-<html lang="en, ru, uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InfoServerVintage</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
-        integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InfoServerVintage | Глина ждет!</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700&display=swap"
-        rel="stylesheet">
+    <link rel="icon" href="./img/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <canvas id="particles"></canvas>
 
-    <link rel="stylesheet" href="./css/styles.css"> 
-</head>
-<body>
-    <header>
-        <h1>&#8595;&#8595;&#8595; Глина ждет &#8595;&#8595;&#8595;</h1>
+    <header class="snap-section hero">
+      <video autoplay loop muted playsinline class="hero-video">
+        <source
+          src="./vid/napravljeno-video-po-zaxtevu_SJYShDqs.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+      <div class="panel transparent-panel">
+        <h1 class="glina-title">
+          <span class="ornament">⟡</span>
+          <span>Глина ждет</span>
+          <span class="ornament">⟡</span>
+        </h1>
+        <p>
+          Суровое выживание, моды и локалка. Следуй инструкции, чтобы
+          присоединиться к нашему серверу и начать копать!
+        </p>
+
+        <button class="btn-copper" id="startBtn">
+          <span>Начать экспедицию</span>
+        </button>
+      </div>
+
+      <div class="scroll-indicator">
+        <div class="chevron"></div>
+        <div class="chevron"></div>
+        <div class="chevron"></div>
+      </div>
     </header>
-    <main>
-        <section>
-            <h2>1. Radmin - наша локалка и игра по сети</h2>
-            <ul>
-                <li>
-                    <h3>1.1 Переходим по ссылке, качаем и устанавливаем прогу:</h3>
-                    <ul>
-                        <li><a class="link" href="https://www.radmin-vpn.com/ru/" target="_blank">Radmin VPN</a></li>
-                    </ul>
-                    <h3>1.2 В проге нажимаем "Присоединиться к сети", после чего вводим данные логин и пароль:</h3>
-                    <ul>
-                        <li>Log: PastaKaput</li>
-                        <li>Pas: 01530153</li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-        <section class="section-gray">
-            <h2 class="title-color">2. Vintage Story - то, где мы будем искать ГЛИНУ!!!</h2>
-            <ul>
-                <li>
-                    <h3>2.1 Переходим по ссылке, там же проходим все по пунктикам (качаем саму игру, регестрируемся, запускаем один раз именно этот файл: "VintagestoryServer.exe")</h3>
-                    <ul>
-                        <li><a class="link" href="https://freetp.org/po-seti/4471-vintage-story-igrat-po-seti-i-internetu-onlayn-full.html" target="_blank">Vintage Story</a></li>
-                    </ul>
-                    <p>P.S Перед тем как продолжить - запусти хоть раз игру и войди в аккаун. После чего можешь выходить.</p>
-                </li>
-            </ul>
-        </section>
-        <section>
-            <h2>3. Моды!</h2>
-            <p>Небольшая сборка которая лишь дополняет ванильный гейплэй :)</p>
-            <ul>
-                <li>
-                    <h3>3.1 Переходим по ссылке, качаем архив с модами:</h3>
-                    <ul>
-                        <li>
-                            <a class="link" href="https://www.dropbox.com/scl/fi/pdnvbjrvlqkel893q0hy9/Mods.rar?rlkey=cws2wtiza82cayfs4wvu1rngo&st=l2jqj745&dl=0" target="_blank">VS Mods Collection</a>
-                        </li>
-                    </ul>
-                    <h3>3.2 Папку "Mods" внутри архива кидаем сюда: <span class="directory">"C:\Users\...\AppData\Roaming\VintagestoryData"</span></h3>
-                    <p>Если нужно, с заменой.</p>
-                </li>
-            </ul>
-        </section>
-        <section class="section-gray">
-            <h2 class="title-color">4. Запуск сервера и вход в игру</h2>
-            <ul>
-                <li>
-                    <h3>4.1 Запускаем игру.</h3>
-                    <h3>4.2 В игре выбираем "Сетевая игра" -> "Присоединиться к серверу"</h3>
-                    <h3>4.3 Вводим IP адрес сервера: (это уже когда начнем играть)</h3>
-                </li>
-            </ul>
-        <h3 class="perfecto">PERFECTO!!!!!!!!!!!!!!!!</h3>
-    </main>
-    <footer>
-        <ul>
-            <li><button class="button" id="openBtn">Нажми на меня</button>
-                <script>
-                    document.getElementById('openBtn').addEventListener('click', function() {
-                    const url = 'https://i.pinimg.com/736x/4d/7d/5b/4d7d5b302daf7e251d5c1da5041b22a3.jpg';
-                    const newWin = window.open(url, '_blank');
-                    });
-                </script>
-            </li>
-        </ul>
-        
-    </footer>
-</body>
+
+    <section class="snap-section step-section" id="step-1">
+      <div class="bg-number">1</div>
+      <div class="panel tilt-element">
+        <div class="card-icon">
+          <svg class="icon-svg">
+            <use href="./img/sprite.svg#icon-radmin"></use>
+          </svg>
+        </div>
+        <h3>Radmin VPN</h3>
+        <p>
+          Наша локалка и игра по сети. Скачай и установи программу, затем нажми
+          <strong>"Присоединиться к сети"</strong> и введи данные:
+        </p>
+
+        <div class="step-action-row">
+          <div class="auth-box">
+            <div class="auth-row">
+              <span class="label">Логин:</span>
+              <span class="value">PastaKaput</span>
+            </div>
+            <div class="auth-row">
+              <span class="label">Пароль:</span>
+              <span class="value">01530153</span>
+            </div>
+          </div>
+          <a
+            href="https://www.radmin-vpn.com/ru/"
+            target="_blank"
+            class="link-btn"
+            >Скачать Radmin VPN</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="snap-section step-section" id="step-2">
+      <div class="bg-number temporal-glow">2</div>
+      <div class="panel tilt-element temporal-panel">
+        <div class="card-icon temporal-glow">
+          <svg class="icon-svg">
+            <use href="./img/sprite.svg#icon-vs"></use>
+          </svg>
+        </div>
+        <h3 class="temporal-glow">Vintage Story</h3>
+        <p>
+          То, где мы будем искать ГЛИНУ!!! Переходи по ссылке и делай всё по
+          пунктам (качай игру, регистрируйся).
+        </p>
+        <p class="note">
+          ⚠️ Важно: Запусти один раз файл "VintagestoryServer.exe", войди в
+          аккаунт и можешь выходить.
+        </p>
+
+        <a
+          href="https://freetp.org/po-seti/4471-vintage-story-igrat-po-seti-i-internetu-onlayn-full.html"
+          target="_blank"
+          class="link-btn link-temporal"
+          >Скачать Игру</a
+        >
+      </div>
+    </section>
+
+    <section class="snap-section step-section" id="step-3">
+      <div class="bg-number">3</div>
+      <div class="panel tilt-element">
+        <div class="card-icon">
+          <svg class="icon-svg">
+            <use href="./img/sprite.svg#icon-mods"></use>
+          </svg>
+        </div>
+        <h3>Моды!</h3>
+        <p>
+          Небольшая сборка, которая лишь дополняет ванильный геймплей :). Скачай
+          архив и кинь папку "Mods" с заменой по пути:
+        </p>
+        <div class="directory-box">
+          <code>C:\Users\...\AppData\Roaming\VintagestoryData</code>
+        </div>
+
+        <a
+          href="https://www.dropbox.com/scl/fi/pdnvbjrvlqkel893q0hy9/Mods.rar?rlkey=cws2wtiza82cayfs4wvu1rngo&st=l2jqj745&dl=0"
+          target="_blank"
+          class="link-btn"
+          >Скачать Архив с Модами</a
+        >
+      </div>
+    </section>
+
+    <section class="snap-section final-section" id="step-4">
+      <div class="bg-number">4</div>
+      <div class="panel tilt-element perfect-panel">
+        <div class="card-icon">
+          <svg class="icon-svg">
+            <use href="./img/sprite.svg#icon-launch"></use>
+          </svg>
+        </div>
+        <h3>Вход в игру</h3>
+        <p>
+          Запускаем игру. Выбираем
+          <strong>"Сетевая игра" &rarr; "Присоединиться к серверу"</strong>.
+        </p>
+        <p>Вводим IP адрес сервера (будет выдан перед стартом).</p>
+        <h2 class="perfecto">PERFECTO</h2>
+      </div>
+
+      <footer class="secret-trigger-area">
+        <button class="secret-btn" id="openBtn">Нажми на меня</button>
+      </footer>
+    </section>
+
+    <div class="modal-overlay" id="secretModal">
+      <div class="modal-content">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <img
+          src="https://i.pinimg.com/736x/4d/7d/5b/4d7d5b302daf7e251d5c1da5041b22a3.jpg"
+          alt="Secret Image"
+        />
+      </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+  </body>
 </html>

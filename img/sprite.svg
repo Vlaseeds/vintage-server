@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <defs>
+    <symbol id="icon-radmin" viewBox="0 0 100 100">
+      <path fill="#8c5331" d="M25 40 a15 15 0 0 1 0 20 h50 a15 15 0 0 1 0 -20 z M80 35 l4 -8 -12 -12 -8 4 -4 -8 -16 0 -4 8 -8 -4 -12 12 4 8 -8 4 0 16 8 4 -4 8 12 12 8 -4 4 8 16 0 4 -8 8 4 12 -12 -4 -8 8 -4 z m-60 15 a10 10 0 1 0 20 0 a10 10 0 1 0 -20 0 z" />
+      <path fill="#d48b59" d="M15 45 a10 10 0 0 1 0 10 h70 a10 10 0 0 1 0 -10 z M75 40 l4 -8 -12 -12 -8 4 -4 -8 -16 0 -4 8 -8 -4 -12 12 4 8 -8 4 0 16 8 4 -4 8 12 12 8 -4 4 8 16 0 4 -8 8 4 12 -12 -4 -8 8 -4 z m-60 10 a5 5 0 1 0 10 0 a5 5 0 1 0 -10 0 z" fill-opacity="0.9" />
+      <circle fill="#4dc2b8" cx="20" cy="50" r="10" />
+      <circle fill="#4dc2b8" cx="80" cy="50" r="10" />
+      <path fill="#1f6b65" d="M25 50 h50" stroke="#4dc2b8" stroke-width="4" stroke-linecap="round" />
+    </symbol>
+
+    <symbol id="icon-vs" viewBox="0 0 100 100">
+      <path fill="#8c5331" d="M85 45 l5 -10 -15 -15 -10 5 -5 -10 -20 0 -5 10 -10 -5 -15 15 5 10 -10 5 0 20 10 5 -5 10 15 15 10 -5 5 10 20 0 5 -10 10 5 15 -15 -5 -10 10 -5 z" />
+      <path fill="#d48b59" d="M80 47 l4 -8 -12 -12 -8 4 -4 -8 -16 0 -4 8 -8 -4 -12 12 4 8 -8 4 0 16 8 4 -4 8 12 12 8 -4 4 8 16 0 4 -8 8 4 12 -12 -4 -8 8 -4 z" fill-opacity="0.9" />
+      <circle cx="50" cy="50" r="25" fill="#161412" />
+      <circle cx="50" cy="50" r="15" fill="#161412" stroke="#d48b59" stroke-width="2" fill-opacity="0" />
+    </symbol>
+
+    <symbol id="icon-mods" viewBox="0 0 100 100">
+      <path fill="#3d332c" d="M10 50 l80 0 l-5 35 a5 5 0 0 1 -5 5 l-60 0 a5 5 0 0 1 -5 -5 z" stroke="#24201d" stroke-width="2" />
+      <path fill="#3d332c" d="M10 50 l0 -15 a5 5 0 0 1 5 -5 l60 0 a5 5 0 0 1 5 5 l0 15 a5 5 0 0 1 -5 5 l-60 0 a5 5 0 0 1 -5 -5 z" stroke="#d48b59" stroke-width="3" />
+      <rect x="30" y="35" width="40" height="10" fill="#24201d" rx="2" />
+      <path fill="#4dc2b8" d="M45 40 a5 5 0 0 1 5 5 a5 5 0 0 1 -5 -5 z M55 40 a5 5 0 0 1 5 5 a5 5 0 0 1 -5 -5 z" fill-opacity="0.8" />
+      <polygon points="40,30 50,20 60,30" fill="#4dc2b8" fill-opacity="0.6" />
+    </symbol>
+    
+    <symbol id="icon-launch" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="40" fill="#161412" stroke="#4dc2b8" stroke-width="3" stroke-dasharray="10 5" fill-opacity="0.2" />
+      <path fill="#8c5331" d="M20 70 l10 -10 a30 30 0 0 1 40 -40 l10 -10 l10 10 a30 30 0 0 1 -40 40 l-10 10 z M35 35 a5 5 0 1 0 10 0 a5 5 0 1 0 -10 0 z" fill-opacity="0.7" />
+      <path fill="#d48b59" d="M25 65 l10 -10 a25 25 0 0 1 30 -30 l10 -10 l10 10 a25 25 0 0 1 -30 30 l-10 10 z M38 38 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 z" fill-opacity="0.9" stroke="#8c5331" stroke-width="1" />
+    </symbol>
+  </defs>
+</svg>
